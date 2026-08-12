@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Ignite Youth Community</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="IYC-v2.jpeg" />
+  <!-- Font Awesome (optional, for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="flag-strip"></div>
+      <img src="IYC.jpeg" alt="Logo" class="loader-logo" onerror="this.style.display='none'" />
+      <h1 data-i18n="about.loader.title">Ignite Youth Community</h1>
+      <div class="spinner"></div>
+      <div class="tech-line"></div>
+      <p class="quote" data-i18n="about.loader.quote">“If you want to shine like a sun, first burn like a sun." He also noted, "Excellence is a continuous process and not an accident.”</p>
+      <p class="quote-author" data-i18n="about.loader.author">— APJ Abdul Kalam</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="IYC.jpeg" alt="Logo" onerror="this.style.display='none'" />
+          <span data-i18n="about.nav.brand">Ignite Youth Community</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="about.nav.home">Home</a></li>
+        <li><a href="about.html" class="active" data-i18n="about.nav.about">About Us</a></li>
+        <li><a href="wings.html" data-i18n="about.nav.wings">Wings</a></li>
+        <li><a href="gallery.html" data-i18n="about.nav.gallery">Gallery</a></li>
+        <li><a href="activities.html" data-i18n="about.nav.activities">Our Activities</a></li>
+        <!-- ===== LANGUAGE DROPDOWN ===== -->
+        <li class="language-dropdown">
+          <button class="language-toggle" onclick="toggleLanguageDropdown(event)">
+            🌐 <span id="currentLanguage">English</span> <span class="arrow">▼</span>
+          </button>
+          <ul class="language-menu" id="languageMenu">
+            <li><a href="#" onclick="selectLanguage('en', event)">🇬🇧 English</a></li>
+            <li><a href="#" onclick="selectLanguage('hi', event)">🇮🇳 हिन्दी</a></li>
+            <li><a href="#" onclick="selectLanguage('bn', event)">🇮🇳 বাংলা</a></li>
+            <li><a href="#" onclick="selectLanguage('te', event)">🇮🇳 తెలుగు</a></li>
+            <li><a href="#" onclick="selectLanguage('mr', event)">🇮🇳 मराठी</a></li>
+            <li><a href="#" onclick="selectLanguage('ta', event)">🇮🇳 தமிழ்</a></li>
+            <li><a href="#" onclick="selectLanguage('ur', event)">🇮🇳 اردو</a></li>
+            <li><a href="#" onclick="selectLanguage('gu', event)">🇮🇳 ગુજરાતી</a></li>
+            <li><a href="#" onclick="selectLanguage('kn', event)">🇮🇳 ಕನ್ನಡ</a></li>
+            <li><a href="#" onclick="selectLanguage('ml', event)">🇮🇳 മലയാളം</a></li>
+            <li><a href="#" onclick="selectLanguage('or', event)">🇮🇳 ଓଡ଼ିଆ</a></li>
+            <li><a href="#" onclick="selectLanguage('pa', event)">🇮🇳 ਪੰਜਾਬੀ</a></li>
+            <li><a href="#" onclick="selectLanguage('as', event)">🇮🇳 অসমীয়া</a></li>
+            <li><a href="#" onclick="selectLanguage('mai', event)">🇮🇳 मैथिली</a></li>
+            <li><a href="#" onclick="selectLanguage('sat', event)">🇮🇳 ᱥᱟᱱᱛᱟᱲᱤ</a></li>
+            <li><a href="#" onclick="selectLanguage('ks', event)">🇮🇳 कॉशुर</a></li>
+            <li><a href="#" onclick="selectLanguage('ne', event)">🇮🇳 नेपाली</a></li>
+            <li><a href="#" onclick="selectLanguage('sd', event)">🇮🇳 سنڌي</a></li>
+            <li><a href="#" onclick="selectLanguage('kok', event)">🇮🇳 कोंकणी</a></li>
+            <li><a href="#" onclick="selectLanguage('doi', event)">🇮🇳 डोगरी</a></li>
+            <li><a href="#" onclick="selectLanguage('mni', event)">🇮🇳 মৈতৈলোন্</a></li>
+            <li><a href="#" onclick="selectLanguage('sa', event)">🇮🇳 संस्कृतम्</a></li>
+          </ul>
+        </li>
+        <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" class="join-btn" data-i18n="about.nav.join">JOIN IYC</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== ABOUT US PAGE ===== -->
+  <section class="about-page">
+    <img src="IYC-v2.jpeg" alt="" class="about-bg-logo" onerror="this.style.display='none'" />
+    <div class="about-container">
+      <!-- ===== MOTTO ===== -->
+      <div class="motto-section">
+        <p class="motto-text" data-i18n="about.motto">"When young minds unite with a common purpose, they become an unstoppable force for national transformation"</p>
+      </div>
+      <!-- ===== TRICOLOUR LINE ===== -->
+      <div class="about-line"></div>
+      <!-- ===== ABOUT CONTENT ===== -->
+      <div class="about-content">
+        <h1><span data-i18n="about.heading">About Ignite Youth Community</span></h1>
+        <div class="about-text">
+          <p data-i18n="about.p1">Ignite Youth Community was founded on 14th March 2026 under Shreshta Foundation a dynamic youth-driven platform dedicated to empowering young minds through leadership, learning, innovation, and social impact.</p>
+          <p data-i18n="about.p2">Founded with the vision of creating responsible, socially conscious, and intellectually strong individuals, the community brings together passionate students and young leaders who aspire to create meaningful change in society. Rooted in the ideals of "Yuva Shakti Bharat" and "Rashtra Devo Bhava", the organization inspires youth to place the nation above self and contribute towards the collective progress of Bharat.</p>
+          <p data-i18n="about.p3">At Ignite Youth Community, we believe that today's youth are the architects of tomorrow's Bharat. Through a wide range of skill development programmes, leadership initiatives, awareness campaigns, workshops, debates, Model United Nations conferences, public speaking sessions, research discussions, and community engagement activities, we aim to nurture confidence, communication, creativity, analytical thinking, and social responsibility among young individuals.</p>
+          <p data-i18n="about.p4">The community actively works towards youth empowerment by creating opportunities for students to discover their potential, voice their ideas, and develop practical skills that contribute to both personal excellence and nation-building.</p>
+          <p data-i18n="about.p5">Alongside intellectual and leadership development, Ignite Youth Community is deeply committed to social welfare initiatives that promote awareness, inclusivity, compassion, sustainability, and positive societal transformation.</p>
+          <p data-i18n="about.p6">Guided by the vision of Viksit Bharat 2047, the organization encourages youth to become proactive changemakers who lead with integrity, purpose, and patriotism. We strive to build an environment where every individual feels inspired, valued, heard, and empowered to make a lasting impact on society.</p>
+          <p data-i18n="about.p7">Ignite Youth Community is not just a platform, it is a movement of young individuals united by the spirit of learning, leadership, service, and national development. With the belief that empowered youth can transform the future of the nation, the community continues to ignite ideas, inspire action, and create leaders who will shape a stronger, united, and progressive Bharat.</p>
+        </div>
+      </div>
+      <!-- ===== VISION, MISSION, PRINCIPLES ===== -->
+      <div class="vision-mission-section">
+        <div class="vm-card">
+          <h3 data-i18n="about.vision.title">Vision</h3>
+          <p data-i18n="about.vision.text">To create a unified, empowered, and intellectually vibrant youth community that drives India towards becoming a global leader.</p>
+        </div>
+        <div class="vm-card">
+          <h3 data-i18n="about.mission.title">Mission</h3>
+          <p data-i18n="about.mission.text">To provide platforms, programs, and pathways that nurture leadership, critical thinking, and social responsibility among India's youth.</p>
+        </div>
+      </div>
+      <!-- ===== FOUNDING PRINCIPLES ===== -->
+      <div class="principles-section">
+        <h3 data-i18n="about.principles.title">Founding Principles</h3>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <h4 data-i18n="about.principles.yuva">Yuva Shakti Bharat</h4>
+            <p data-i18n="about.principles.yuva_text">Harnessing the power of youth to build a stronger India.</p>
+          </div>
+          <div class="principle-card">
+            <h4 data-i18n="about.principles.rashtra">Rashtra Devo Bhava</h4>
+            <p data-i18n="about.principles.rashtra_text">Serving the nation as the highest form of devotion.</p>
+          </div>
+          <div class="principle-card">
+            <h4 data-i18n="about.principles.viksit">Viksit Bharat 2047</h4>
+            <p data-i18n="about.principles.viksit_text">Working towards a developed and prosperous India by 2047.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <img src="IYC.jpeg" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+          <h3 data-i18n="gallery.footer.brand">Ignite Youth Community</h3>
+          <p data-i18n="gallery.footer.description">Empowering the next generation of leaders, innovators, and changemakers.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Twitter / X" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact -->
+        <div class="footer-contact">
+          <h4 data-i18n="gallery.footer.contact">Contact Us</h4>
+          <ul>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
+              <span>+91 90003414509</span>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:igniteyouthcommunitysf@gmail.com">igniteyouthcommunitysf@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <address>
+                Sreshta Foundation,<br />
+                83/2A Sir Shanmugam Road,<br />
+                RS Puram, Coimbatore - 641002
+              </address>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Media -->
+        <div class="footer-social-media">
+          <h4 data-i18n="gallery.footer.follow">Follow Us</h4>
+          <ul>
+            <li>
+              <span class="social-icon"><i class="fab fa-instagram"></i></span>
+              <a href="https://www.instagram.com/igniteyouthcommunity?igsh=amV1bHc5c2NpNndk">@igniteyouthcommunity</a>
+              <span class="platform" data-i18n="gallery.footer.instagram">Instagram</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-youtube"></i></span>
+              <a href="https://youtube.com/@igniteyouthcommunity-2026?si=SLwNPQBuEgsMglG0">Ignite Youth</a>
+              <span class="platform" data-i18n="gallery.footer.youtube">YouTube</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-twitter"></i></span>
+              <a href="https://x.com/igniteyouth2026">@igniteyouth2026</a>
+              <span class="platform" data-i18n="gallery.footer.twitter">X (Twitter)</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+              <a href="#">Ignite Youth Community</a>
+              <span class="platform" data-i18n="gallery.footer.linkedin">LinkedIn</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Quick Links -->
+        <div class="footer-links">
+          <h4 data-i18n="gallery.footer.links">Quick Links</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="gallery.footer.home">Home</a></li>
+            <li><a href="about.html" data-i18n="gallery.footer.about">About Us</a></li>
+            <li><a href="wings.html" data-i18n="gallery.footer.wings">Wings</a></li>
+            <li><a href="gallery.html" data-i18n="gallery.footer.gallery">Gallery</a></li>
+            <li><a href="activities.html" data-i18n="gallery.footer.activities">Our Activities</a></li>
+            <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" data-i18n="gallery.footer.join">Join IYC</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <p data-i18n="gallery.footer.rights">&copy; 2026 Ignite Youth Community. All Rights Reserved.</p>
+        <p class="footer-tagline" data-i18n="gallery.footer.tagline">Ignite the Youth. Share Knowledge. Build Leaders. Serve the Nation.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="language-about.js"></script>
+  <script src="script.js"></script>
+  <script src="language-gallery.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignite Youth Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="IYC-v2.jpeg" />
+</head>
+<body>
+
+  <!-- ===== LOADING ===== -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="flag-strip"></div>
+      <img src="IYC.jpeg" alt="Logo" class="loader-logo" onerror="this.style.display='none'" />
+      <h1 data-i18n="loader.title">Ignite Youth Community</h1>
+      <div class="spinner"></div>
+      <div class="tech-line"></div>
+      <p class="quote" data-i18n="loader.quote">“If you want to shine like a sun, first burn like a sun." He also noted, "Excellence is a continuous process and not an accident.”</p>
+      <p class="quote-author" data-i18n="loader.author">— APJ Abdul Kalam</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="IYC.jpeg" alt="Logo" onerror="this.style.display='none'" />
+          <span data-i18n="nav.brand">Ignite Youth Community</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+        <li><a href="wings.html" data-i18n="nav.wings">Wings</a></li>
+        <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="activities.html" data-i18n="nav.activities">Our Activities</a></li>
+        
+        <!-- ===== LANGUAGE DROPDOWN ===== -->
+        <li class="language-dropdown">
+          <button class="language-toggle" onclick="toggleLanguageDropdown(event)">
+            🌐 <span id="currentLanguage">English</span> <span class="arrow">▼</span>
+          </button>
+          <ul class="language-menu" id="languageMenu">
+            <li><a href="#" onclick="selectLanguage('en', event)">🇬🇧 English</a></li>
+            <li><a href="#" onclick="selectLanguage('hi', event)">🇮🇳 हिन्दी</a></li>
+            <li><a href="#" onclick="selectLanguage('bn', event)">🇮🇳 বাংলা</a></li>
+            <li><a href="#" onclick="selectLanguage('te', event)">🇮🇳 తెలుగు</a></li>
+            <li><a href="#" onclick="selectLanguage('mr', event)">🇮🇳 मराठी</a></li>
+            <li><a href="#" onclick="selectLanguage('ta', event)">🇮🇳 தமிழ்</a></li>
+            <li><a href="#" onclick="selectLanguage('ur', event)">🇮🇳 اردو</a></li>
+            <li><a href="#" onclick="selectLanguage('gu', event)">🇮🇳 ગુજરાતી</a></li>
+            <li><a href="#" onclick="selectLanguage('kn', event)">🇮🇳 ಕನ್ನಡ</a></li>
+            <li><a href="#" onclick="selectLanguage('ml', event)">🇮🇳 മലയാളം</a></li>
+            <li><a href="#" onclick="selectLanguage('or', event)">🇮🇳 ଓଡ଼ିଆ</a></li>
+            <li><a href="#" onclick="selectLanguage('pa', event)">🇮🇳 ਪੰਜਾਬੀ</a></li>
+            <li><a href="#" onclick="selectLanguage('as', event)">🇮🇳 অসমীয়া</a></li>
+            <li><a href="#" onclick="selectLanguage('mai', event)">🇮🇳 मैथिली</a></li>
+            <li><a href="#" onclick="selectLanguage('sat', event)">🇮🇳 ᱥᱟᱱᱛᱟᱲᱤ</a></li>
+            <li><a href="#" onclick="selectLanguage('ks', event)">🇮🇳 कॉशुर</a></li>
+            <li><a href="#" onclick="selectLanguage('ne', event)">🇮🇳 नेपाली</a></li>
+            <li><a href="#" onclick="selectLanguage('sd', event)">🇮🇳 سنڌي</a></li>
+            <li><a href="#" onclick="selectLanguage('kok', event)">🇮🇳 कोंकणी</a></li>
+            <li><a href="#" onclick="selectLanguage('doi', event)">🇮🇳 डोगरी</a></li>
+            <li><a href="#" onclick="selectLanguage('mni', event)">🇮🇳 মৈতৈলোন্</a></li>
+            <li><a href="#" onclick="selectLanguage('sa', event)">🇮🇳 संस्कृतम्</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" class="join-btn" data-i18n="nav.join">JOIN IYC</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="IYC-v2.jpeg" alt="" class="hero-bg-logo" onerror="this.style.display='none'" />
+    <div class="hero-grid"></div>
+    <div class="hero-center-glow"></div>
+    <div class="hero-content">
+      <div class="main-heading" data-i18n="hero.welcome"><span><strong>Welcome to Ignite Youth Community</strong></span></div>
+      <div class="sub-heading" data-i18n="hero.subtitle">(A unit of Shreshta Foundation)</div>
+      
+      <p class="hero-subtitle">
+        <span class="bharat-text" data-i18n="hero.bharat">BHARAT'S</span>
+        <span class="future-text" data-i18n="hero.future">FUTURE STARTS</span> 
+        <span class="here-text" data-i18n="hero.here">HERE.</span>
+      </p>
+      
+      <div class="hero-line"></div>
+      
+      <p class="hero-description" data-i18n="hero.description">
+        Empowering the next generation of leaders, innovators, and changemakers.<br />
+        Together, we ignite minds and build a brighter tomorrow for our nation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT STATS ===== -->
+  <section class="impact-stats">
+    <div class="impact-container">
+      <div class="president-line"></div>
+      <div class="impact-card">
+        <div class="impact-number">2000+</div>
+        <div class="impact-label" data-i18n="stats.students">Students Empowered</div>
+        <div class="impact-divider"></div>
+        <div class="impact-sub" data-i18n="stats.students.sub">through workshops &amp; mentorship</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">75+</div>
+        <div class="impact-label" data-i18n="stats.events">Events Hosted</div>
+        <div class="impact-divider"></div>
+        <div class="impact-sub" data-i18n="stats.events.sub">pan-India &amp; virtual</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">220</div>
+        <div class="impact-label" data-i18n="stats.members">Active Members</div>
+        <div class="impact-divider"></div>
+        <div class="impact-sub" data-i18n="stats.members.sub">across 7 states</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EST. SECTION – states ===== -->
+  <section class="est-section">
+    <div class="est-container">
+      <div class="est-title" data-i18n="est.title"><span>Our Reach</span></div>
+      <div class="est-states">
+        <span class="est-state" data-i18n="states.tamilnadu">Tamil Nadu</span>
+        <span class="est-state" data-i18n="states.kerala">Kerala</span>
+        <span class="est-state" data-i18n="states.karnataka">Karnataka</span>
+        <span class="est-state" data-i18n="states.telangana">Telangana</span>
+        <span class="est-state" data-i18n="states.puducherry">Puducherry</span>
+        <span class="est-state" data-i18n="states.gujarat">Gujarat</span>
+        <span class="est-state" data-i18n="states.bihar">Bihar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRESIDENT'S SECTION ===== -->
+  <section class="president-section">
+    <img src="IYC-v2.jpeg" alt="" class="president-bg-logo" onerror="this.style.display='none'" />
+    <div class="president-container">
+      <div class="president-line"></div>
+      <div class="president-content">
+        <div class="president-image">
+          <img src="President.png" alt="President Pranav Suchindran" onerror="this.style.display='none'" />
+        </div>
+        <div class="president-text">
+          <h2 data-i18n="president.leadership"><span>IYC Leadership</span></h2>
+          <p class="designation" data-i18n="president.designation">President, Ignite Youth Community</p>
+          <div class="president-bio">
+            <h3 class="president-name" data-i18n="president.name">Pranav Suchindran</h3>
+            <p class="president-title" data-i18n="president.title">President, Ignite Youth Community (IYC)</p>
+            <p class="president-tags" data-i18n="president.tags">Diplomatic Authoritative Trail Blazer | National Award Winner | Youth Leader</p>
+          </div>
+          <div class="president-message">
+            <p data-i18n="president.message1">Pranav Suchindran is a young nation-builder, diplomatic thinker, researcher, public speaker, and youth leader whose work is anchored in the timeless ideal of Rashtra Devo Bhava — the Nation as the highest duty.</p>
+            <p data-i18n="president.message2">As the President of Ignite Youth Community (IYC), Pranav is shaping a youth movement founded on a simple conviction: an empowered, knowledgeable, and responsible youth is the foundation of a developed nation. His vision centres on knowledge sharing, mentorship, peer-to-peer learning, leadership development, and creating meaningful opportunities for young people to learn from and grow with one another.</p>
+            <p data-i18n="president.message3">A National Award Winner for his innovative work through Nyaaya Vaani, Pranav represents a new generation of young leaders who seek to combine innovation with social purpose, diplomacy with conviction, and leadership with service.</p>
+            <p data-i18n="president.message4">His distinctive identity as a "Diplomatic Authoritative Trail Blazer" reflects his approach to leadership—strategic in thought, authoritative in purpose, diplomatic in engagement, and pioneering in action.</p>
+            <p data-i18n="president.message5">For Pranav, youth leadership is not about creating followers; it is about creating leaders. Through IYC, he strives to build a culture of shared knowledge, peer mentorship, intellectual curiosity, civic responsibility, and collective growth.</p>
+            <p data-i18n="president.message6">Every initiative ultimately converges towards one larger national aspiration: Viksit Bharat. Guided by the spirit of Rashtra Devo Bhava and powered by Yuva Shakti, Pranav seeks to inspire young Indians to become not merely witnesses to India's transformation, but active architects of its future.</p>
+          </div>
+          <div class="president-signoff">
+            <p class="signoff-text" data-i18n="president.signoff">Ignite the Youth. Share Knowledge. Build Leaders. Serve the Nation.</p>
+            <p class="signoff-viksit" data-i18n="president.viksit"><strong>Towards Viksit Bharat</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOUNDER'S SECTION ===== -->
+  <section class="founder-section">
+    <img src="Shreshta.jpeg" alt="" class="founder-bg-logo" onerror="this.style.display='none'" />
+    <div class="founder-container">
+      <div class="founder-line"></div>
+      <div class="founder-content">
+        <div class="founder-image">
+          <img src="Founder.png" alt="Founder Suchindran Coimbatore Sankararaman" onerror="this.style.display='none'" />
+        </div>
+        <div class="founder-text">
+          <div class="founder-bio">
+            <h3 class="founder-name" data-i18n="founder.name">Suchindran Coimbatore Sankararaman</h3>
+            <p class="founder-title" data-i18n="founder.title">Founder &amp; Visionary | SRESHTA Foundation</p>
+          </div>
+          <div class="founder-message">
+            <p data-i18n="founder.message1">Suchindran Coimbatore Sankararaman is the Founder and visionary behind.</p>
+            <p data-i18n="founder.message2">His vision for SRESHTA Foundation is to build a distinctive institutional platform that brings together professional consulting, education and training, entrepreneurship, sustainable agriculture and environmental initiatives, and youth development—creating meaningful intersections between economic opportunity and social impact.</p>
+            <p data-i18n="founder.message3">With a strong belief in the transformative power of knowledge, Suchindran advocates an approach in which learning leads to capability, capability leads to enterprise, and enterprise contributes to sustainable development. His efforts are focused on creating accessible avenues for individuals, professionals, entrepreneurs, farmers and young people to acquire relevant knowledge, develop practical competencies and translate their potential into productive outcomes.</p>
+            <p data-i18n="founder.message4">As an MSME, SRESHTA Foundation reflects his belief that smaller, agile institutions can become powerful catalysts for innovation and grassroots transformation. The Foundation seeks to operate at the intersection of enterprise and purpose, developing initiatives that are professionally structured, practically relevant and socially meaningful.</p>
+            <p data-i18n="founder.message5">Suchindran's leadership philosophy is anchored in integrity, continuous learning, innovation, sustainability and responsible growth. He envisions SRESHTA Foundation not simply as an organisation delivering programmes and services, but as an evolving ecosystem that enables people to learn, create, lead and contribute.</p>
+            <p data-i18n="founder.message6">Through SRESHTA Foundation, his larger aspiration is to foster a culture of self-reliance, entrepreneurship and responsible citizenship, while contributing to sustainable livelihoods, knowledge-driven growth and stronger communities.</p>
+          </div>
+          <div class="founder-signoff">
+            <p class="signoff-text" data-i18n="founder.signoff">Building Capability. Creating Opportunity. Advancing Sustainable Growth.</p>
+            <p class="signoff-vision" data-i18n="founder.vision">Under Suchindran's leadership, SRESHTA Foundation aspires to grow as a credible MSME institution that transforms ideas into initiatives, knowledge into capability and capability into lasting impact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <img src="IYC.jpeg" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+          <h3 data-i18n="gallery.footer.brand">Ignite Youth Community</h3>
+          <p data-i18n="gallery.footer.description">Empowering the next generation of leaders, innovators, and changemakers.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Twitter / X" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact -->
+        <div class="footer-contact">
+          <h4 data-i18n="gallery.footer.contact">Contact Us</h4>
+          <ul>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
+              <span>+91 90003414509</span>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:igniteyouthcommunitysf@gmail.com">igniteyouthcommunitysf@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <address>
+                Sreshta Foundation,<br />
+                83/2A Sir Shanmugam Road,<br />
+                RS Puram, Coimbatore - 641002
+              </address>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Media -->
+        <div class="footer-social-media">
+          <h4 data-i18n="gallery.footer.follow">Follow Us</h4>
+          <ul>
+            <li>
+              <span class="social-icon"><i class="fab fa-instagram"></i></span>
+              <a href="https://www.instagram.com/igniteyouthcommunity?igsh=amV1bHc5c2NpNndk">@igniteyouthcommunity</a>
+              <span class="platform" data-i18n="gallery.footer.instagram">Instagram</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-youtube"></i></span>
+              <a href="https://youtube.com/@igniteyouthcommunity-2026?si=SLwNPQBuEgsMglG0">Ignite Youth</a>
+              <span class="platform" data-i18n="gallery.footer.youtube">YouTube</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-twitter"></i></span>
+              <a href="https://x.com/igniteyouth2026">@igniteyouth2026</a>
+              <span class="platform" data-i18n="gallery.footer.twitter">X (Twitter)</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+              <a href="#">Ignite Youth Community</a>
+              <span class="platform" data-i18n="gallery.footer.linkedin">LinkedIn</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Quick Links -->
+        <div class="footer-links">
+          <h4 data-i18n="gallery.footer.links">Quick Links</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="gallery.footer.home">Home</a></li>
+            <li><a href="about.html" data-i18n="gallery.footer.about">About Us</a></li>
+            <li><a href="wings.html" data-i18n="gallery.footer.wings">Wings</a></li>
+            <li><a href="gallery.html" data-i18n="gallery.footer.gallery">Gallery</a></li>
+            <li><a href="activities.html" data-i18n="gallery.footer.activities">Our Activities</a></li>
+            <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" data-i18n="gallery.footer.join">Join IYC</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <p data-i18n="gallery.footer.rights">&copy; 2026 Ignite Youth Community. All Rights Reserved.</p>
+        <p class="footer-tagline" data-i18n="gallery.footer.tagline">Ignite the Youth. Share Knowledge. Build Leaders. Serve the Nation.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="language.js"></script>
+  <script src="language-gallery.js"></script>
+
+</body>
+</html>

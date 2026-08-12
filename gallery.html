@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Ignite Youth Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="IYC-v2.jpeg" />
+  <style>
+    /* ===== OVERRIDE / ENHANCE GALLERY GRID ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      background: #f5f8fa;
+      border: 2px solid rgba(26, 154, 154, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      border-color: #1a9a9a;
+      box-shadow: 0 8px 30px rgba(26, 154, 154, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: #ffffff;
+      font-size: 2.8rem;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      font-size: 2.5rem;
+      color: #ffffff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      padding: 10px;
+    }
+
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ===== GALLERY PAGE ===== */
+    .gallery-page {
+      padding: 140px 40px 80px;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-container h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #1a2a3a;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .gallery-container h1 span {
+      color: #1a9a9a;
+    }
+
+    .gallery-subtitle {
+      font-size: 1.15rem;
+      color: #3a4a5a;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .gallery-line {
+      width: 100%;
+      height: 3px;
+      margin: 0 0 40px;
+      background: linear-gradient(90deg, #ff8c00 0%, #ffffff 50%, #138808 100%);
+      border-radius: 4px;
+      opacity: 0.6;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #1a9a9a;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      z-index: 1000;
+      padding: 0 20px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.2s;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      border-bottom-color: #fff;
+    }
+
+    .join-btn {
+      display: inline-block;
+      padding: 10px 28px;
+      background: linear-gradient(135deg, #ff8c00, #e07000, #cc5a00);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 10px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 25px rgba(255, 140, 0, 0.3);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      text-transform: uppercase;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 40px rgba(255, 140, 0, 0.4);
+      background: linear-gradient(135deg, #ff9900, #e87800, #d06600);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1001;
+    }
+
+    .nav-hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    /* Hamburger Animation */
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ===== LANGUAGE DROPDOWN ===== */
+    .language-dropdown {
+      position: relative;
+    }
+
+    .language-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .language-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .language-toggle .arrow {
+      font-size: 0.6rem;
+      transition: transform 0.3s ease;
+    }
+
+    .language-dropdown.active .language-toggle .arrow {
+      transform: rotate(180deg);
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 200px;
+      max-height: 350px;
+      overflow-y: auto;
+      background: rgba(15, 120, 120, 0.98);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+      padding: 6px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      list-style: none;
+    }
+
+    .language-dropdown.active .language-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .language-menu li {
+      padding: 0;
+      margin: 0;
+    }
+
+    .language-menu li a {
+      display: block;
+      padding: 8px 18px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .language-menu li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .language-menu::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .language-menu::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+    }
+
+    .language-menu::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0d2b3e;
+      color: #e0e8f0;
+      padding: 60px 40px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .footer-brand p {
+      line-height: 1.6;
+      opacity: 0.8;
+      max-width: 300px;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .social-link {
+      background: rgba(255,255,255,0.08);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #e0e8f0;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+
+    .social-link:hover {
+      background: #1a9a9a;
+      transform: translateY(-3px);
+    }
+
+    .footer-contact h4,
+    .footer-social-media h4,
+    .footer-links h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-contact ul,
+    .footer-social-media ul,
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .footer-contact a {
+      color: #1a9a9a;
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social-media li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-social-media .platform {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-left: auto;
+    }
+
+    .footer-links li a {
+      color: #e0e8f0;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+
+    .footer-links li a:hover {
+      opacity: 1;
+      color: #1a9a9a;
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .footer-tagline {
+      margin-top: 6px;
+      font-style: italic;
+      opacity: 0.6;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================
+       RESPONSIVE BREAKPOINTS
+       ============================================ */
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+
+    /* Mobile - Show Hamburger */
+    @media (max-width: 768px) {
+      /* Gallery */
+      .gallery-page {
+        padding: 120px 20px 60px;
+      }
+      
+      .gallery-container h1 {
+        font-size: 2.4rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      /* Show Hamburger */
+      .nav-hamburger {
+        display: flex !important;
+      }
+
+      /* Mobile Menu - THIS IS CRITICAL */
+      .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 75% !important;
+        max-width: 320px !important;
+        height: 100vh !important;
+        background: #1a9a9a !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 15px !important;
+        transition: right 0.4s ease !important;
+        padding: 40px 20px !important;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.3) !important;
+        z-index: 999 !important;
+        display: flex !important;
+        margin: 0 !important;
+        list-style: none !important;
+        overflow-y: auto !important;
+      }
+
+      .nav-links.active {
+        right: 0 !important;
+      }
+
+      .nav-links li {
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .nav-links li a {
+        font-size: 1.1rem !important;
+        color: #ffffff !important;
+        display: block !important;
+        padding: 10px 0 !important;
+        border-bottom: 2px solid transparent !important;
+        text-decoration: none !important;
+      }
+
+      .nav-links li a:hover {
+        border-bottom-color: #ffffff !important;
+      }
+
+      .join-btn {
+        padding: 12px 35px !important;
+        font-size: 0.95rem !important;
+        display: inline-block !important;
+        margin-top: 10px !important;
+      }
+
+      /* Language dropdown on mobile */
+      .language-dropdown {
+        width: 100% !important;
+      }
+
+      .language-toggle {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 20px !important;
+        background: rgba(255,255,255,0.1) !important;
+      }
+
+      .language-menu {
+        position: static !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        display: none !important;
+        max-height: 180px !important;
+        overflow-y: auto !important;
+      }
+
+      .language-dropdown.active .language-menu {
+        display: block !important;
+      }
+
+      .language-menu li a {
+        padding: 8px 20px !important;
+        text-align: center !important;
+        font-size: 0.9rem !important;
+        color: #ffffff !important;
+      }
+
+      body.menu-open {
+        overflow: hidden !important;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .gallery-page {
+        padding: 100px 16px 40px;
+      }
+      
+      .gallery-container h1 {
+        font-size: 2rem;
+      }
+      
+      .gallery-subtitle {
+        font-size: 1rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .footer {
+        padding: 40px 20px 20px;
+      }
+    }
+
+    /* Desktop - Hide Hamburger */
+    @media (min-width: 769px) {
+      .nav-hamburger {
+        display: none !important;
+      }
+
+      .nav-links {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 30px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        width: auto !important;
+        height: auto !important;
+        right: auto !important;
+        transition: none !important;
+        z-index: auto !important;
+        overflow: visible !important;
+      }
+
+      .nav-links li {
+        width: auto !important;
+      }
+
+      .nav-links li a {
+        font-size: 1rem !important;
+        color: #ffffff !important;
+        padding: 6px 0 !important;
+        border-bottom: 2px solid transparent !important;
+      }
+
+      .nav-links li a:hover {
+        border-bottom-color: #ffffff !important;
+      }
+
+      .join-btn {
+        padding: 10px 28px !important;
+        font-size: 0.95rem !important;
+      }
+    }
+</style>
+</head>
+<body>
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="flag-strip"></div>
+      <img src="IYC.jpeg" alt="Logo" class="loader-logo" onerror="this.style.display='none'" />
+      <h1 data-i18n="gallery.loader.title">Ignite Youth Community</h1>
+      <div class="spinner"></div>
+      <div class="tech-line"></div>
+      <p class="quote" data-i18n="gallery.loader.quote">"If you want to shine like a sun, first burn like a sun." He also noted, "Excellence is a continuous process and not an accident."</p>
+      <p class="quote-author" data-i18n="gallery.loader.author">— APJ Abdul Kalam</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="IYC.jpeg" alt="Logo" onerror="this.style.display='none'" />
+          <span data-i18n="gallery.nav.brand">Ignite Youth Community</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="gallery.nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="gallery.nav.about">About Us</a></li>
+        <li><a href="wings.html" data-i18n="gallery.nav.wings">Wings</a></li>
+        <li><a href="gallery.html" class="active" data-i18n="gallery.nav.gallery">Gallery</a></li>
+        <li><a href="activities.html" data-i18n="gallery.nav.activities">Our Activities</a></li>
+        
+        <!-- ===== LANGUAGE DROPDOWN ===== -->
+        <li class="language-dropdown">
+          <button class="language-toggle" onclick="toggleLanguageDropdown(event)">
+            🌐 <span id="currentLanguage">English</span> <span class="arrow">▼</span>
+          </button>
+          <ul class="language-menu" id="languageMenu">
+            <li><a href="#" onclick="selectLanguage('en', event)">🇬🇧 English</a></li>
+            <li><a href="#" onclick="selectLanguage('hi', event)">🇮🇳 हिन्दी</a></li>
+            <li><a href="#" onclick="selectLanguage('bn', event)">🇮🇳 বাংলা</a></li>
+            <li><a href="#" onclick="selectLanguage('te', event)">🇮🇳 తెలుగు</a></li>
+            <li><a href="#" onclick="selectLanguage('mr', event)">🇮🇳 मराठी</a></li>
+            <li><a href="#" onclick="selectLanguage('ta', event)">🇮🇳 தமிழ்</a></li>
+            <li><a href="#" onclick="selectLanguage('ur', event)">🇮🇳 اردو</a></li>
+            <li><a href="#" onclick="selectLanguage('gu', event)">🇮🇳 ગુજરાતી</a></li>
+            <li><a href="#" onclick="selectLanguage('kn', event)">🇮🇳 ಕನ್ನಡ</a></li>
+            <li><a href="#" onclick="selectLanguage('ml', event)">🇮🇳 മലയാളം</a></li>
+            <li><a href="#" onclick="selectLanguage('or', event)">🇮🇳 ଓଡ଼ିଆ</a></li>
+            <li><a href="#" onclick="selectLanguage('pa', event)">🇮🇳 ਪੰਜਾਬੀ</a></li>
+            <li><a href="#" onclick="selectLanguage('as', event)">🇮🇳 অসমীয়া</a></li>
+            <li><a href="#" onclick="selectLanguage('mai', event)">🇮🇳 मैथिली</a></li>
+            <li><a href="#" onclick="selectLanguage('sat', event)">🇮🇳 ᱥᱟᱱᱛᱟᱲᱤ</a></li>
+            <li><a href="#" onclick="selectLanguage('ks', event)">🇮🇳 कॉशुर</a></li>
+            <li><a href="#" onclick="selectLanguage('ne', event)">🇮🇳 नेपाली</a></li>
+            <li><a href="#" onclick="selectLanguage('sd', event)">🇮🇳 سنڌي</a></li>
+            <li><a href="#" onclick="selectLanguage('kok', event)">🇮🇳 कोंकणी</a></li>
+            <li><a href="#" onclick="selectLanguage('doi', event)">🇮🇳 डोगरी</a></li>
+            <li><a href="#" onclick="selectLanguage('mni', event)">🇮🇳 মৈতৈলোন্</a></li>
+            <li><a href="#" onclick="selectLanguage('sa', event)">🇮🇳 संस्कृतम्</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" class="join-btn" data-i18n="gallery.nav.join">JOIN IYC</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== GALLERY PAGE ===== -->
+  <section class="gallery-page">
+    <div class="gallery-container">
+      <h1 data-i18n="gallery.heading"><span>Our Gallery</span></h1>
+      <p class="gallery-subtitle" data-i18n="gallery.subtitle">Capturing moments of learning, leadership, and transformation.</p>
+      
+      <div class="gallery-line"></div>
+
+      <!-- ===== GALLERY GRID ===== -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item">
+          <img src="Sample1.jpeg" alt="Gallery image 1" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample2.jpeg" alt="Gallery image 2" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample3.jpeg" alt="Gallery image 3" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample4.jpeg" alt="Gallery image 4" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample5.jpeg" alt="Gallery image 5" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample6.jpeg" alt="Gallery image 6" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample7.jpeg" alt="Gallery image 7" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample8.jpeg" alt="Gallery image 8" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample9.jpeg" alt="Gallery image 9" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample10.jpeg" alt="Gallery image 10" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample11.jpeg" alt="Gallery image 11" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample12.jpeg" alt="Gallery image 12" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample13.jpeg" alt="Gallery image 13" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample14.jpeg" alt="Gallery image 14" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample15.jpeg" alt="Gallery image 15" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample16.jpeg" alt="Gallery image 16" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample17.jpeg" alt="Gallery image 17" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample18.jpeg" alt="Gallery image 18" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample19.jpeg" alt="Gallery image 19" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample20.png" alt="Gallery image 20" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample21.jpeg" alt="Gallery image 21" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample22.jpeg" alt="Gallery image 22" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample23.jpeg" alt="Gallery image 23" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample24.jpeg" alt="Gallery image 24" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src=" Sample25.jpeg" alt="Gallery image 25" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample26.jpeg" alt="Gallery image 26" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample27.jpeg" alt="Gallery image 27" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample28.jpeg" alt="Gallery image 28" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample29.jpeg" alt="Gallery image 29" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample30.jpeg" alt="Gallery image 30" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample31.jpeg" alt="Gallery image 31" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Sample32.jpeg" alt="Gallery image 32" loading="lazy" />
+          <div class="gallery-overlay"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+ <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <img src="IYC.jpeg" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+          <h3 >Ignite Youth Community</h3>
+          <p >Empowering the next generation of leaders, innovators, and changemakers.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Twitter / X" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact -->
+        <div class="footer-contact">
+          <h4 >Contact Us</h4>
+          <ul>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
+              <span>+91 90003414509</span>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:igniteyouthcommunitysf@gmail.com">igniteyouthcommunitysf@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <address>
+                Sreshta Foundation,<br />
+                83/2A Sir Shanmugam Road,<br />
+                RS Puram, Coimbatore - 641002
+              </address>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Media -->
+        <div class="footer-social-media">
+          <h4>Follow Us</h4>
+          <ul>
+            <li>
+              <span class="social-icon"><i class="fab fa-instagram"></i></span>
+              <a href="https://www.instagram.com/igniteyouthcommunity?igsh=amV1bHc5c2NpNndk">@igniteyouthcommunity</a>
+              <span class="platform" >Instagram</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-youtube"></i></span>
+              <a href="https://youtube.com/@igniteyouthcommunity-2026?si=SLwNPQBuEgsMglG0">Ignite Youth</a>
+              <span class="platform">YouTube</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-twitter"></i></span>
+              <a href="https://x.com/igniteyouth2026">@igniteyouth2026</a>
+              <span class="platform" >X (Twitter)</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+              <a href="#">Ignite Youth Community</a>
+              <span class="platform" >LinkedIn</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Quick Links -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="about.html" >About Us</a></li>
+            <li><a href="wings.html" >Wings</a></li>
+            <li><a href="gallery.html" >Gallery</a></li>
+            <li><a href="activities.html" >Our Activities</a></li>
+            <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank">Join IYC</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <p data-i18n="gallery.footer.rights">&copy; 2026 Ignite Youth Community. All Rights Reserved.</p>
+        <p class="footer-tagline" data-i18n="gallery.footer.tagline">Ignite the Youth. Share Knowledge. Build Leaders. Serve the Nation.</p>
+      </div>
+    </div>
+  </footer>
+<script src="language-gallery.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

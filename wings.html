@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Wings - Ignite Youth Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="IYC-v2.jpeg" />
+</head>
+<body>
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="flag-strip"></div>
+      <img src="IYC.jpeg" alt="Logo" class="loader-logo" onerror="this.style.display='none'" />
+      <h1 data-i18n="wings.loader.title">Ignite Youth Community</h1>
+      <div class="spinner"></div>
+      <div class="tech-line"></div>
+      <p class="quote" data-i18n="wings.loader.quote">"If you want to shine like a sun, first burn like a sun." He also noted, "Excellence is a continuous process and not an accident."</p>
+      <p class="quote-author" data-i18n="wings.loader.author">— APJ Abdul Kalam</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="IYC.jpeg" alt="Logo" onerror="this.style.display='none'" />
+          <span data-i18n="wings.nav.brand">Ignite Youth Community</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="wings.nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="wings.nav.about">About Us</a></li>
+        <li><a href="wings.html" class="active" data-i18n="wings.nav.wings">Wings</a></li>
+        <li><a href="gallery.html" data-i18n="wings.nav.gallery">Gallery</a></li>
+        <li><a href="activities.html" data-i18n="wings.nav.activities">Our Activities</a></li>
+        <!-- LANGUAGE DROPDOWN -->
+        <li class="language-dropdown">
+          <button class="language-toggle" onclick="toggleLanguageDropdown(event)">
+            🌐 <span id="currentLanguage">English</span> <span class="arrow">▼</span>
+          </button>
+          <ul class="language-menu" id="languageMenu">
+            <li><a href="#" onclick="selectLanguage('en', event)">🇬🇧 English</a></li>
+            <li><a href="#" onclick="selectLanguage('hi', event)">🇮🇳 हिन्दी</a></li>
+            <li><a href="#" onclick="selectLanguage('bn', event)">🇮🇳 বাংলা</a></li>
+            <li><a href="#" onclick="selectLanguage('te', event)">🇮🇳 తెలుగు</a></li>
+            <li><a href="#" onclick="selectLanguage('mr', event)">🇮🇳 मराठी</a></li>
+            <li><a href="#" onclick="selectLanguage('ta', event)">🇮🇳 தமிழ்</a></li>
+            <li><a href="#" onclick="selectLanguage('ur', event)">🇮🇳 اردو</a></li>
+            <li><a href="#" onclick="selectLanguage('gu', event)">🇮🇳 ગુજરાતી</a></li>
+            <li><a href="#" onclick="selectLanguage('kn', event)">🇮🇳 ಕನ್ನಡ</a></li>
+            <li><a href="#" onclick="selectLanguage('ml', event)">🇮🇳 മലയാളം</a></li>
+            <li><a href="#" onclick="selectLanguage('or', event)">🇮🇳 ଓଡ଼ିଆ</a></li>
+            <li><a href="#" onclick="selectLanguage('pa', event)">🇮🇳 ਪੰਜਾਬੀ</a></li>
+            <li><a href="#" onclick="selectLanguage('as', event)">🇮🇳 অসমীয়া</a></li>
+            <li><a href="#" onclick="selectLanguage('mai', event)">🇮🇳 मैथिली</a></li>
+            <li><a href="#" onclick="selectLanguage('sat', event)">🇮🇳 ᱥᱟᱱᱛᱟᱲᱤ</a></li>
+            <li><a href="#" onclick="selectLanguage('ks', event)">🇮🇳 कॉशुर</a></li>
+            <li><a href="#" onclick="selectLanguage('ne', event)">🇮🇳 नेपाली</a></li>
+            <li><a href="#" onclick="selectLanguage('sd', event)">🇮🇳 سنڌي</a></li>
+            <li><a href="#" onclick="selectLanguage('kok', event)">🇮🇳 कोंकणी</a></li>
+            <li><a href="#" onclick="selectLanguage('doi', event)">🇮🇳 डोगरी</a></li>
+            <li><a href="#" onclick="selectLanguage('mni', event)">🇮🇳 মৈতৈলোন্</a></li>
+            <li><a href="#" onclick="selectLanguage('sa', event)">🇮🇳 संस्कृतम्</a></li>
+          </ul>
+        </li>
+        <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" class="join-btn" data-i18n="wings.nav.join">JOIN IYC</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== WINGS PAGE ===== -->
+  <section class="wings-page">
+    <img src="IYC-v2.jpeg" alt="" class="wings-bg-logo" onerror="this.style.display='none'" />
+    <div class="wings-container">
+      <h1 data-i18n="wings.heading"><span>Our Wings</span></h1>
+      <p class="wings-subtitle" data-i18n="wings.subtitle">Each wing is designed to nurture specific talents and skills, creating well-rounded leaders for tomorrow's Bharat.</p>
+      <div class="wings-line"></div>
+
+      <div class="wings-grid">
+        <!-- Wing 1: Ideation -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">01</span>
+            <h2 data-i18n="wings.wing1.name">Ideation</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing1.motto">Think. Create. Innovate.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing1.why">Be the architect of new ideas and shape the future through creativity.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing1.what">Brainstorming sessions, innovation challenges, and creative problem-solving.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing1.requirements">Creative mindset, willingness to think outside the box, and passion for innovation.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing1.faq.q">Q: Do I need prior experience?</span><br /><span data-i18n="wings.wing1.faq.a">A: No, just a curious mind!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 2: Documentation -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">02</span>
+            <h2 data-i18n="wings.wing2.name">Documentation</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing2.motto">Preserve. Record. Inspire.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing2.why">Master the art of storytelling and preserve the legacy of IYC.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing2.what">Writing, content creation, documentation, and archival work.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing2.requirements">Good writing skills, attention to detail, and passion for documentation.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing2.faq.q">Q: What kind of documentation work?</span><br /><span data-i18n="wings.wing2.faq.a">A: Reports, newsletters, social media content, and archival.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 3: Social Media -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">03</span>
+            <h2 data-i18n="wings.wing3.name">Social Media</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing3.motto">Connect. Engage. Inspire.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing3.why">Amplify the IYC voice and build a digital community of changemakers.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing3.what">Content creation, social media management, campaigns, and digital outreach.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing3.requirements">Creativity, basic knowledge of social media platforms, and passion for digital storytelling.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing3.faq.q">Q: Do I need to know graphic design?</span><br /><span data-i18n="wings.wing3.faq.a">A: Not mandatory, but willingness to learn is a plus!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 4: Information Technology -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">04</span>
+            <h2 data-i18n="wings.wing4.name">Information Technology</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing4.motto">Innovate. Code. Transform.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing4.why">Build the digital backbone of IYC and drive technological innovation.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing4.what">Website development, app creation, tech support, and digital solutions.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing4.requirements">Basic coding knowledge (HTML/CSS/JS), problem-solving skills, and tech enthusiasm.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing4.faq.q">Q: What programming languages?</span><br /><span data-i18n="wings.wing4.faq.a">A: HTML, CSS, JavaScript, and we also explore Python!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 5: Skill Development -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">05</span>
+            <h2 data-i18n="wings.wing5.name">Skill Development</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing5.motto">Empower. Equip. Elevate.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing5.why">Help others discover their potential and build essential life skills.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing5.what">Workshops, training sessions, skill-based programs, and personal development.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing5.requirements">Passion for teaching, good communication skills, and leadership mindset.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing5.faq.q">Q: What skills do we teach?</span><br /><span data-i18n="wings.wing5.faq.a">A: Communication, leadership, public speaking, and more!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 6: Events -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">06</span>
+            <h2 data-i18n="wings.wing6.name">Events</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing6.motto">Plan. Execute. Celebrate.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing6.why">Create unforgettable experiences and bring the IYC community together.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing6.what">Event planning, coordination, logistics, and community engagement activities.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing6.requirements">Organizational skills, creativity, and ability to work in a team.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing6.faq.q">Q: What types of events?</span><br /><span data-i18n="wings.wing6.faq.a">A: Workshops, seminars, cultural events, and community outreach.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 7: Model United Nations -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">07</span>
+            <h2 data-i18n="wings.wing7.name">Model United Nations</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing7.motto">Think. Debate. Diplomacy.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing7.why">Develop diplomatic skills and represent Bharat on global platforms.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing7.what">MUN conferences, diplomacy training, debate sessions, and global affairs discussions.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing7.requirements">Interest in international relations, debating skills, and research mindset.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing7.faq.q">Q: Do I need MUN experience?</span><br /><span data-i18n="wings.wing7.faq.a">A: No, we train you from the ground up!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 8: Fine Arts -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">08</span>
+            <h2 data-i18n="wings.wing8.name">Fine Arts</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing8.motto">Create. Express. Inspire.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing8.why">Unleash your creativity and bring beauty to the IYC community.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing8.what">Painting, sculpture, digital art, exhibitions, and artistic expression.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing8.requirements">Passion for art, creativity, and willingness to experiment with different mediums.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing8.faq.q">Q: Do I need professional training?</span><br /><span data-i18n="wings.wing8.faq.a">A: No, we welcome artists of all levels!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 9: Innovation -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">09</span>
+            <h2 data-i18n="wings.wing9.name">Innovation</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing9.motto">Dream. Build. Disrupt.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing9.why">Transform ideas into reality and shape the future through innovation.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing9.what">Prototyping, hackathons, innovation challenges, and product development.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing9.requirements">Creative thinking, problem-solving skills, and passion for building things.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing9.faq.q">Q: What kind of projects?</span><br /><span data-i18n="wings.wing9.faq.a">A: Tech solutions, social innovations, and creative products.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 10: Literary -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">10</span>
+            <h2 data-i18n="wings.wing10.name">Literary</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing10.motto">Write. Read. Inspire.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing10.why">Express your thoughts and build a literary culture in IYC.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing10.what">Creative writing, poetry, book reviews, literary events, and publications.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing10.requirements">Love for words, reading habits, and passion for creative expression.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing10.faq.q">Q: Do I need to be a writer?</span><br /><span data-i18n="wings.wing10.faq.a">A: Just a love for literature is enough!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 11: Commerce -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">11</span>
+            <h2 data-i18n="wings.wing11.name">Commerce</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing11.motto">Learn. Grow. Trade.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing11.why">Develop business acumen and financial literacy for the future.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing11.what">Business studies, financial literacy, economics discussions, and entrepreneurship.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing11.requirements">Interest in commerce, business, and financial literacy.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing11.faq.q">Q: Do I need a commerce background?</span><br /><span data-i18n="wings.wing11.faq.a">A: No, just curiosity about business and finance!</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 12: Humanities -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">12</span>
+            <h2 data-i18n="wings.wing12.name">Humanities</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing12.motto">Question. Understand. Connect.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing12.why">Explore human society, culture, and the world around us.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing12.what">Social studies, philosophy, history, psychology, and cultural discussions.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing12.requirements">Curiosity about society, critical thinking, and love for learning.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing12.faq.q">Q: What topics do we cover?</span><br /><span data-i18n="wings.wing12.faq.a">A: Philosophy, sociology, history, and contemporary issues.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 13: Environmental Wellness -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">13</span>
+            <h2 data-i18n="wings.wing13.name">Environmental Wellness</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing13.motto">Protect. Sustain. Thrive.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing13.why">Be a guardian of our planet and promote environmental awareness.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing13.what">Sustainability, environmental awareness, green initiatives, and wellness.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing13.requirements">Passion for environment, sustainability mindset, and action-oriented approach.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing13.faq.q">Q: What kind of activities?</span><br /><span data-i18n="wings.wing13.faq.a">A: Plantation drives, cleanups, awareness campaigns, and more.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wing 14: Legal -->
+        <div class="wing-card">
+          <div class="wing-header">
+            <span class="wing-number">14</span>
+            <h2 data-i18n="wings.wing14.name">Legal</h2>
+          </div>
+          <div class="wing-details">
+            <div class="wing-section">
+              <h4 data-i18n="wings.motto">Motto</h4>
+              <p data-i18n="wings.wing14.motto">Know. Protect. Lead.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.why">Why Join?</h4>
+              <p data-i18n="wings.wing14.why">Understand the law and become a voice for justice in society.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.what">What It's About</h4>
+              <p data-i18n="wings.wing14.what">Legal awareness, constitutional values, rights and duties, and legal advocacy.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.requirements">Requirements</h4>
+              <p data-i18n="wings.wing14.requirements">Interest in law, justice, and social advocacy.</p>
+            </div>
+            <div class="wing-section">
+              <h4 data-i18n="wings.faq">FAQ</h4>
+              <p><span data-i18n="wings.wing14.faq.q">Q: Do I need a law degree?</span><br /><span data-i18n="wings.wing14.faq.a">A: No, just passion for justice and legal awareness!</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <img src="IYC.jpeg" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+          <h3 data-i18n="gallery.footer.brand">Ignite Youth Community</h3>
+          <p data-i18n="gallery.footer.description">Empowering the next generation of leaders, innovators, and changemakers.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Twitter / X" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact -->
+        <div class="footer-contact">
+          <h4 data-i18n="gallery.footer.contact">Contact Us</h4>
+          <ul>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
+              <span>+91 90003414509</span>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:igniteyouthcommunitysf@gmail.com">igniteyouthcommunitysf@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <address>
+                Sreshta Foundation,<br />
+                83/2A Sir Shanmugam Road,<br />
+                RS Puram, Coimbatore - 641002
+              </address>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Media -->
+        <div class="footer-social-media">
+          <h4 data-i18n="gallery.footer.follow">Follow Us</h4>
+          <ul>
+            <li>
+              <span class="social-icon"><i class="fab fa-instagram"></i></span>
+              <a href="https://www.instagram.com/igniteyouthcommunity?igsh=amV1bHc5c2NpNndk">@igniteyouthcommunity</a>
+              <span class="platform" data-i18n="gallery.footer.instagram">Instagram</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-youtube"></i></span>
+              <a href="https://youtube.com/@igniteyouthcommunity-2026?si=SLwNPQBuEgsMglG0">Ignite Youth</a>
+              <span class="platform" data-i18n="gallery.footer.youtube">YouTube</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-x-twitter"></i></span>
+              <a href="https://x.com/igniteyouth2026">@igniteyouth2026</a>
+              <span class="platform" data-i18n="gallery.footer.twitter">X (Twitter)</span>
+            </li>
+            <li>
+              <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+              <a href="#">Ignite Youth Community</a>
+              <span class="platform" data-i18n="gallery.footer.linkedin">LinkedIn</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Quick Links -->
+        <div class="footer-links">
+          <h4 data-i18n="gallery.footer.links">Quick Links</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="gallery.footer.home">Home</a></li>
+            <li><a href="about.html" data-i18n="gallery.footer.about">About Us</a></li>
+            <li><a href="wings.html" data-i18n="gallery.footer.wings">Wings</a></li>
+            <li><a href="gallery.html" data-i18n="gallery.footer.gallery">Gallery</a></li>
+            <li><a href="activities.html" data-i18n="gallery.footer.activities">Our Activities</a></li>
+            <li><a href="https://forms.gle/pVzhrSoFiHpcd62cA" target="_blank" data-i18n="gallery.footer.join">Join IYC</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <p data-i18n="gallery.footer.rights">&copy; 2026 Ignite Youth Community. All Rights Reserved.</p>
+        <p class="footer-tagline" data-i18n="gallery.footer.tagline">Ignite the Youth. Share Knowledge. Build Leaders. Serve the Nation.</p>
+      </div>
+    </div>
+  </footer>
+<script src="script.js"></script>
+<script src="language-wings.js"></script>
+<script src="language-gallery.js"></script>
+</body>
+</html>
